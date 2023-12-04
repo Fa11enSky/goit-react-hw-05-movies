@@ -2,10 +2,10 @@ import MovieItemStyled from './MovieItem.Styled';
 import css from './style.module.css';
 const { Link } = require('react-router-dom');
 
-function MovieItem({ movie }) {
+function MovieItem({ movie, location }) {
   return (
     <li>
-      <Link style={{ textDecoration: 'none' }} to={`/movies/${movie.id}`}>
+      <Link style={{ textDecoration: 'none' }} to={`/movies/${movie.id}`} state={{from:location}}>
         <MovieItemStyled>
           <h1 className={css.header}> {movie.title}</h1>
           <div className={css.thumb}>

@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import getFilms from 'sercvice/getFilmList';
 import MovieList from 'components/MovieList/MovieList';
 import Loader from 'components/Loader/Loader';
+import { useLocation } from 'react-router-dom';
 const Home = () => {
+  const location = useLocation();
   const [films, setFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -37,7 +39,7 @@ const Home = () => {
       </h1>
       {isLoading && <Loader />}
 
-      {isEmpty ? <h1>{errorMessage}</h1> : <MovieList movies={films} />}
+      {isEmpty ? <h1>{errorMessage}</h1> : <MovieList movies={films} location={location} />}
     </div>
   );
 };

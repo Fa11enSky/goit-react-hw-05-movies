@@ -1,8 +1,8 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import ArticleStyled from './Article.Styled';
 import DescriptionStyled from './Description.Styled';
 import ThumbStyled from './Thumb.Styled';
-
+import ButtonBack from 'components/ButtonBack/ButtonBack';
 const MovieDetailsItem = ({ movieObj }) => {
   const {
     original_title: title,
@@ -13,9 +13,11 @@ const MovieDetailsItem = ({ movieObj }) => {
     vote_average: vote,
   } = movieObj;
   const date = release_date.split('-');
+  const location = useLocation();
   return (
     <div>
       <ArticleStyled>
+        <ButtonBack location={location} />
         <ThumbStyled>
           <img
             src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${poster}`}

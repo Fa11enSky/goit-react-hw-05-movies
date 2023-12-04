@@ -1,6 +1,6 @@
 import SearchForm from 'components/SearchForm/SeearchForm';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams,useLocation } from 'react-router-dom';
 import { searchMovie } from 'sercvice/getFilmList';
 import MovieList from 'components/MovieList/MovieList';
 import Loader from 'components/Loader/Loader';
@@ -10,6 +10,7 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
+  const location = useLocation();
   useEffect(() => {
     if(!query) return
       setIsLoading(true);
@@ -42,7 +43,7 @@ const Movies = () => {
     <div>
       {isLoading && <Loader />}
       <SearchForm handleSubmit={handleSubmit} />
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} location={location} />
         
       {isEmpty && <div>VOID</div>}
     </div>
