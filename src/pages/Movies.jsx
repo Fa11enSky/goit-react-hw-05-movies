@@ -1,6 +1,6 @@
 import SearchForm from 'components/SearchForm/SeearchForm';
 import { useState, useEffect } from 'react';
-import { useSearchParams,useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { searchMovie } from 'sercvice/getFilmList';
 import MovieList from 'components/MovieList/MovieList';
 import Loader from 'components/Loader/Loader';
@@ -10,7 +10,6 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
-  const location = useLocation();
   useEffect(() => {
     if(!query) return
       setIsLoading(true);
@@ -27,23 +26,23 @@ const Movies = () => {
         .catch(err => console.log(err))
         .finally(() => setIsLoading(false));
     
-  }, [ query, isEmpty]);
-  const updateQueryString = name => {
-    const nextName = name !== '' ? { query: name } : {};
-    setSearchParams(nextName);
-  };
-  const handleSubmit = ev => {
-    ev.preventDefault();
-    const filmName = ev.target.elements.filmName.value;
-    setMovies([]);
-    updateQueryString(filmName);
-  };
+  }, [ query]);
+  // const updateQueryString = name => {
+  //   const nextName = name !== '' ? { query: name } : {};
+  //   setSearchParams(nextName);
+  // };
+  // const handleSubmit = ev => {
+  //   ev.preventDefault();
+  //   const filmName = ev.target.elements.filmName.value;
+  //   setMovies([]);
+  //   updateQueryString(filmName);
+  // };
 
   return (
     <div>
       {isLoading && <Loader />}
-      <SearchForm handleSubmit={handleSubmit} />
-      <MovieList movies={movies} location={location} />
+      <SearchForm setSearch={setSearchParams} />
+      <MovieList movies={movies} />
         
       {isEmpty && <div>VOID</div>}
     </div>

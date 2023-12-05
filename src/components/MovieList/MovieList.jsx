@@ -1,5 +1,5 @@
 import MovieItem from "components/MovieItem/MovieItem";
-const MovieList = ({ movies,location }) => {
+const MovieList = ({ movies }) => {
   return (
     <ul
       style={{
@@ -11,7 +11,7 @@ const MovieList = ({ movies,location }) => {
       }}
     >
       {movies.map(el => {
-            return <MovieItem key={el.id} movie={el} location={location} />;
+            return <MovieItem key={el.id} movie={el}  />;
           })}
     </ul>
   );
