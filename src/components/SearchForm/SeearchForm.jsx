@@ -1,13 +1,13 @@
-const SearchForm = ({ setMovies }) => {
+const SearchForm = ({ setSearch }) => {
   const handleSubmit = ev => {
     ev.preventDefault();
     const filmName = ev.target.elements.filmName.value;
     if (filmName.length === 0) {
-      console.log('reject')
-      return};
-      const query={query:filmName};
-    console.log(query);
-    setMovies(filmName);
+      console.log('reject');
+      return;
+    }
+    const query = { query: filmName };
+    setSearch(query);
   };
 
   return (

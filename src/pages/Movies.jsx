@@ -11,31 +11,26 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   useEffect(() => {
-    if(!query) return
-      setIsLoading(true);
-      searchMovie(query)
-        .then(response => response.json())
-        .then(data => {
-          if (data.results.length > 0) {
-            setIsEmpty(false);
-            setMovies(data.results);
-            return;
-          }
-          setIsEmpty(true);
-        })
-        .catch(err => console.log(err))
-        .finally(() => setIsLoading(false));
-    
-  }, [ query]);
+    if (!query) return;
+    setIsLoading(true);
+    searchMovie(query)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results.length > 0) {
+          setIsEmpty(false);
+          setMovies(data.results);
+          return;
+        }
+        setIsEmpty(true);
+      })
+      .catch(err => console.log(err))
+      .finally(() => setIsLoading(false));
+  }, [query]);
+  // Цю штуку я бачив як робив Репета, але тільки після того як ви відправили на доопрацювання
+  // я допер що то по відношенню до слухача на інпуті а не на сабміт😁
   // const updateQueryString = name => {
   //   const nextName = name !== '' ? { query: name } : {};
   //   setSearchParams(nextName);
-  // };
-  // const handleSubmit = ev => {
-  //   ev.preventDefault();
-  //   const filmName = ev.target.elements.filmName.value;
-  //   setMovies([]);
-  //   updateQueryString(filmName);
   // };
 
   return (
@@ -43,7 +38,7 @@ const Movies = () => {
       {isLoading && <Loader />}
       <SearchForm setSearch={setSearchParams} />
       <MovieList movies={movies} />
-        
+
       {isEmpty && <div>VOID</div>}
     </div>
   );
