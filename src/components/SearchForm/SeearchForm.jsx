@@ -1,3 +1,6 @@
+import { StyledForm, StyledInput, StyledSearchBtn } from './SearchForm.styled';
+import { FaSearch } from 'react-icons/fa';
+
 const SearchForm = ({ setSearch }) => {
   const handleSubmit = ev => {
     ev.preventDefault();
@@ -11,13 +14,16 @@ const SearchForm = ({ setSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Search film
-        <input type="text" name="filmName" />
-      </label>
-      <button type="submit"> Search</button>
-    </form>
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledInput
+        type="text"
+        placeholder="Search movies......."
+        name="filmName"
+      />
+      <StyledSearchBtn type="submit">
+        <FaSearch color="inherit" size="30px" />
+      </StyledSearchBtn>
+    </StyledForm>
   );
 };
 export default SearchForm;

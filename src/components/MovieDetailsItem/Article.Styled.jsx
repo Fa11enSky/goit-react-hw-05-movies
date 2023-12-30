@@ -2,6 +2,7 @@ const { default: styled } = require('styled-components');
 
 const ArticleStyled = styled.article`
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  justify-content:space-between
 `;
 export default ArticleStyled;

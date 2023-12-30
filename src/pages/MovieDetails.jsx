@@ -8,7 +8,6 @@ const MovieDetails = () => {
     
   useEffect(() => {
     searchMovieById(movieId)
-      .then(response => response.json())
       .then(data => {
         setMovieItem(data);
       })

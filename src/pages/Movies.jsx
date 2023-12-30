@@ -14,7 +14,6 @@ const Movies = () => {
     if (!query) return;
     setIsLoading(true);
     searchMovie(query)
-      .then(response => response.json())
       .then(data => {
         if (data.results.length > 0) {
           setIsEmpty(false);
@@ -34,13 +33,13 @@ const Movies = () => {
   // };
 
   return (
-    <div>
-      {isLoading && <Loader />}
-      <SearchForm setSearch={setSearchParams} />
-      <MovieList movies={movies} />
-
-      {isEmpty && <div>VOID</div>}
-    </div>
+    <>
+      <div style={{ display:'flex',justifyContent:'center'}}>
+        {isLoading && <Loader />}
+        <SearchForm setSearch={setSearchParams} />
+      </div>
+      {isEmpty ? <div>VOID</div> : <MovieList movies={movies} />}
+    </>
   );
 };
 export default Movies;

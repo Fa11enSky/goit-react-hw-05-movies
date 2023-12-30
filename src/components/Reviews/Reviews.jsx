@@ -8,7 +8,6 @@ const Reviews = () => {
   const { movieId } = useParams();
   useEffect(() => {
     getReviews(movieId)
-      .then(response => response.json())
       .then(data => setReviews(data.results))
       .catch(err => console.log(err));
   }, [movieId]);

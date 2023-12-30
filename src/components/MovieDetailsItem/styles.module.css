@@ -1,0 +1,81 @@
+.thumb {
+  max-width: 372px;
+  height: 576px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.title {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 67px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  justify-content: space-between;
+  max-width: 708px;
+  margin-bottom: 24px;
+}
+.info_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.genres_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 20px;
+}
+.info {
+  display: flex;
+  gap: 28px;
+}
+.overview {
+    margin-bottom:30px ;
+  font-size: 16px;
+  line-height: normal;
+}
+.article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main_description {
+  max-width: 708px;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 1025px) {
+  .article {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+.main_info li{
+margin-bottom: 8px;
+}
+.bigList{
+    gap:3px;
+    align-items: center;
+    display: flex;
+
+}
+.info_span{
+    font-weight: 600;
+}
+.bigListItem{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

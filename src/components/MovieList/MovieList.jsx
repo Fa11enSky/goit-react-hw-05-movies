@@ -1,19 +1,12 @@
 import MovieItem from "components/MovieItem/MovieItem";
+import StyledMovieList from "./MovieList.Styled";
 const MovieList = ({ movies }) => {
   return (
-    <ul
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '10px',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <StyledMovieList>
       {movies.map(el => {
             return <MovieItem key={el.id} movie={el}  />;
           })}
-    </ul>
+    </StyledMovieList>
   );
 };
 export default MovieList;

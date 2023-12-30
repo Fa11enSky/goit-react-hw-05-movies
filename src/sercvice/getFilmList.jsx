@@ -12,31 +12,63 @@ const getFilms = () => {
   return fetch(
     'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
     options
-  );
+  ).then(response => {
+    if (response.ok) {
+      return response.json()
+    }
+    throw new Error('Error fetching data')
+  }).catch(err=>console.log(err));
 };
 
 export const searchMovie = query => {
   return fetch(
     `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
     options
-  );
+  ).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Error fetching data');
+    })
+    .catch(err => console.log(err));;
 };
 export const searchMovieById = id => {
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
     options
-  );
+  )
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Error fetching data');
+    })
+    .catch(err => console.log(err));;
 };
 export const getCasts = id => {
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
     options
-  );
+  )
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Error fetching data');
+    })
+    .catch(err => console.log(err));;
 };
 export const getReviews = id => {
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`,
     options
-  );
+  )
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Error fetching data');
+    })
+    .catch(err => console.log(err));;
 };
 export default getFilms;

@@ -1,5 +1,7 @@
 import MovieItemStyled from './MovieItem.Styled';
 import css from './style.module.css';
+import { IoMdStarOutline } from 'react-icons/io';
+
 const { Link, useLocation } = require('react-router-dom');
 
 function MovieItem({ movie }) {
@@ -10,12 +12,12 @@ function MovieItem({ movie }) {
   return (
     <li>
       <Link
+        title={movie.title}
         style={{ textDecoration: 'none' }}
         to={`/movies/${movie.id}`}
         state={{ from: location }}
       >
         <MovieItemStyled>
-          <h1 className={css.header}> {movie.title}</h1>
           <div className={css.thumb}>
             <img
               src={
@@ -25,6 +27,13 @@ function MovieItem({ movie }) {
               }
               alt={`${movie.title} poster`}
             />
+          </div>
+          <div style={{ display:'flex', justifyContent:'space-between'}}>
+            <h2 className={css.header}> {movie.title}</h2>
+            <p style={{ display: 'flex', gap: '5px' }} color="inherit">
+              <IoMdStarOutline size="20px" />
+              {movie.vote_average}{' '}
+            </p>
           </div>
         </MovieItemStyled>
       </Link>
