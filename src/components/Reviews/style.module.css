@@ -1,0 +1,9 @@
+.reviewList {
+  max-width: 708px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1142px) {
+  .reviewList {
+    max-width: 1150px;
+  }
+}

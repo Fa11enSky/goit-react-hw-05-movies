@@ -18,7 +18,7 @@ const MovieDetailsItem = ({ movieObj }) => {
     poster_path: poster,
     vote_average: vote,
   } = movieObj;
-  console.log(production_countries);
+  
   const date = release_date.split('-');
   const location = useLocation();
   return (
@@ -89,19 +89,19 @@ const MovieDetailsItem = ({ movieObj }) => {
           </ul>
         </div>
       </article>
-      <div>
+      <div className={css.additionSectionTitle}>
         <h2>Addition information</h2>
-      </div>
-      <ul>
+      <ul className={css.additionBtnList}>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link style={{textDecoration:'none'}} to="cast">Cast</Link>
         </li>
         <li>
-          <Link to="reviews" element={<div>rev</div>}>
+          <Link style={{textDecoration:'none'}} to="reviews" element={<div>rev</div>}>
             Reviews
           </Link>
         </li>
       </ul>
+      </div>
       <Outlet />
     </div>
   );
